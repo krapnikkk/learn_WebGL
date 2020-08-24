@@ -73,37 +73,37 @@ GLSL支持两种数值类型：
 - 不能是GLSL ES的关键字和保留字（下表），变量名的一部分可以是它们。
   
 ### GLSL ES关键字
-| | | | | | |
-| ------ | ------ | ------ | ------ | ------ | ------ |
-| attribute | bool | break | bvec2 | bvec3 | bvec4 |
-| const | continue | discard | do | else | false |
-| float | for | highp | if | in | inout |
-| Int | invariant | ivec2 | ivec3 | ivec4 | lowp |
-| mat2 | mat3 | mat4 | medium | out | precision |
-| return | sampler2D | samplerCube | struct | true | uniform |
-| varying | vec2 | vec3 | vec4 | void | while |
+|           |           |             |        |       |           |
+| --------- | --------- | ----------- | ------ | ----- | --------- |
+| attribute | bool      | break       | bvec2  | bvec3 | bvec4     |
+| const     | continue  | discard     | do     | else  | false     |
+| float     | for       | highp       | if     | in    | inout     |
+| Int       | invariant | ivec2       | ivec3  | ivec4 | lowp      |
+| mat2      | mat3      | mat4        | medium | out   | precision |
+| return    | sampler2D | samplerCube | struct | true  | uniform   |
+| varying   | vec2      | vec3        | vec4   | void  | while     |
 
 ### GLSL ES保留字
-| | | | | | | |
-| ------ | ------ | ------ | ------ | ------ | ------ | ------ |
-| asm | cast | class | default | double | dvec2 | dvec3 |
-| dvec4 | enum | extern | external | fixed | flat | fvec2 |
-| fvec3 | fvec4 | goto | half | hvec2 | hvec3 | hvec4 |
-| inline | input | interface | long | namespace | noinline | output |
-| packed | public | sampler1D | sampler1DShadow | sampler2DRect | sampler2DRectShadow |  shadow2DShadow | 
-| sampler3D | sampler3DRect | short | sizeof | static | superp | switch |
-| template | this | typedef | union | unsigned | using | volatile |
+|           |               |           |                 |               |                     |                |
+| --------- | ------------- | --------- | --------------- | ------------- | ------------------- | -------------- |
+| asm       | cast          | class     | default         | double        | dvec2               | dvec3          |
+| dvec4     | enum          | extern    | external        | fixed         | flat                | fvec2          |
+| fvec3     | fvec4         | goto      | half            | hvec2         | hvec3               | hvec4          |
+| inline    | input         | interface | long            | namespace     | noinline            | output         |
+| packed    | public        | sampler1D | sampler1DShadow | sampler2DRect | sampler2DRectShadow | shadow2DShadow |
+| sampler3D | sampler3DRect | short     | sizeof          | static        | superp              | switch         |
+| template  | this          | typedef   | union           | unsigned      | using               | volatile       |
 
 ## GLSL ES是强类型语言
 GLSL ES要求具体地指明变量的数据类型。
     <类型><变量名>
   
 ## 基本类型
-| 类型 | 描述 |
-| -- | -- |
-| float | 单精度浮点数类型。该类型的变量表示一个单精度浮点数 |
-| int | 整数型。该类型的变量表示一个整数 |
-| bool | 布尔值。该类型的变量表示一个布尔值（true或者false）|
+| 类型  | 描述                                                |
+| ----- | --------------------------------------------------- |
+| float | 单精度浮点数类型。该类型的变量表示一个单精度浮点数  |
+| int   | 整数型。该类型的变量表示一个整数                    |
+| bool  | 布尔值。该类型的变量表示一个布尔值（true或者false） |
 
 ### 赋值和类型变换
 
@@ -121,34 +121,34 @@ float f1 = float(i);
 float f2 = float(8);
 ```
 GLSL ES支持以下几种用于类型转换的内置函数。
-| 转换 | 函数 | 描述 |
-| ---- | ---- | ---- |
-| 转换为整数型 | int(float) | 将浮点数的小数部分删去，转换为整型数 |
-|  | int(bool) | true被转换为1，false被转换为0 |
-| 转换为浮点数 | float(int) | 将整数型转换为浮点数 |
-|  | float(bool) | true被转换为1.0，false被转换为0.0 |
-| 转换为布尔值 | bool(int) | 0被转换为false，其他非0值被转换为true |
-|  | bool(float) | 0.0被转换为false，其他非0值被转换为true | 
+| 转换         | 函数        | 描述                                    |
+| ------------ | ----------- | --------------------------------------- |
+| 转换为整数型 | int(float)  | 将浮点数的小数部分删去，转换为整型数    |
+|              | int(bool)   | true被转换为1，false被转换为0           |
+| 转换为浮点数 | float(int)  | 将整数型转换为浮点数                    |
+|              | float(bool) | true被转换为1.0，false被转换为0.0       |
+| 转换为布尔值 | bool(int)   | 0被转换为false，其他非0值被转换为true   |
+|              | bool(float) | 0.0被转换为false，其他非0值被转换为true |
 
 ### 运算符
-| 类型 | GLSL ES数据类型 | 描述 |
-| ------ | ------ | ------ |
-| - | 取负（比如指定一个负数） | int或float |
-| * | 乘法 | int或者float,运算的返回值类型与参与运算的值类型相同 |
-| / | 除法 |  | 
-| + | 加法 |  |
-| - | 减法 |  |
-| ++ | 自增（前缀后后缀） | int或者float,运算的返回值类型与参与运算的值类型相同 |
-| -- | 自减（前缀后后缀） |  |
-| = | 赋值 | int、float或bool |
-| += -= *= /= | 算术赋值 | int或float |
-| < > <= >= | 比较 |  |
-| == != | 比较（是否相等） | int、float或bool |
-| ! | 取反 | bool或结果为bool类型的表达式 |
-| && | 逻辑与 |  |
-| \|\| | 逻辑或 |  |
-| ^^ | 逻辑异或 |  |
-| condition?expression:expression2 | 三元选择 | condition的类型为bool，expression1和expression2的类型可以是除数组外的任意类型 |  
+| 类型                             | GLSL ES数据类型          | 描述                                                                          |
+| -------------------------------- | ------------------------ | ----------------------------------------------------------------------------- |
+| -                                | 取负（比如指定一个负数） | int或float                                                                    |
+| *                                | 乘法                     | int或者float,运算的返回值类型与参与运算的值类型相同                           |
+| /                                | 除法                     |                                                                               |
+| +                                | 加法                     |                                                                               |
+| -                                | 减法                     |                                                                               |
+| ++                               | 自增（前缀后后缀）       | int或者float,运算的返回值类型与参与运算的值类型相同                           |
+| --                               | 自减（前缀后后缀）       |                                                                               |
+| =                                | 赋值                     | int、float或bool                                                              |
+| += -= *= /=                      | 算术赋值                 | int或float                                                                    |
+| < > <= >=                        | 比较                     |                                                                               |
+| == !=                            | 比较（是否相等）         | int、float或bool                                                              |
+| !                                | 取反                     | bool或结果为bool类型的表达式                                                  |
+| &&                               | 逻辑与                   |                                                                               |
+| \|\|                             | 逻辑或                   |                                                                               |
+| ^^                               | 逻辑异或                 |                                                                               |
+| condition?expression:expression2 | 三元选择                 | condition的类型为bool，expression1和expression2的类型可以是除数组外的任意类型 |
 
 ## 矢量和矩阵
 GLSL ES支持矢量和矩阵类型，矢量和矩阵类型的变量都包含多个元素，每个元素都是一个数值（int,float或bool）。矢量将这些元素排列成一列，可以用来表示顶点坐标或者颜色值等，而矩阵则将元素划分成列和行，可以用来表示变换矩阵。
@@ -167,12 +167,69 @@ $$
 $$
 
 ### 矢量和矩阵类型
-| 类型 | GLSL_ES数据类型 | 描述 |
-| ---- | ---- | ---- |
-| 矢量 | vec2、vec3、vec4 | 具有2、3、4个浮点数元素的矢量 | 
-|  | ivec2、ivec3、ivec4 | 具有2、3、4个整型数元素的矢量 | 
-|  | bvec2、bvec3、bvec4 | 具有2、3、4个布尔值元素的矢量 | 
-| 矩阵 | mat2、mat3、mat4 | 具有2、3、4个浮点数元素的矩阵（分别具有4，9，16个元素） | 
+| 类型 | GLSL_ES数据类型     | 描述                                                    |
+| ---- | ------------------- | ------------------------------------------------------- |
+| 矢量 | vec2、vec3、vec4    | 具有2、3、4个浮点数元素的矢量                           |
+|      | ivec2、ivec3、ivec4 | 具有2、3、4个整型数元素的矢量                           |
+|      | bvec2、bvec3、bvec4 | 具有2、3、4个布尔值元素的矢量                           |
+| 矩阵 | mat2、mat3、mat4    | 具有2、3、4个浮点数元素的矩阵（分别具有4，9，16个元素） |
 
 ### 赋值和构造
-我们使用等号（=）来对于矢量和矩阵进行赋值操作。赋值运算符左右两边的变量/值的类型必须一致，左右两边的（矢量或者矩阵）元素个数必须相同。
+我们使用等号（=）来对于矢量和矩阵进行赋值操作。赋值运算符左右两边的变量/值的类型必须一致，左右两边的（矢量或者矩阵）元素个数必须相同。使用构造函数创建指定类型的变量，构造函数的名称和其创建的变量的类型名称总是一致的。
+
+### 矢量构造函数
+使用构造函数创建矢量时，只向构造函数传入一个参数时，构造函数就会自动地将这个参数复制给新建矢量的所有元素。但是如果构造函数接受了不止1个参数，但是参数的个数又比矢量的元素个数少，那么就会出错。
+```
+vec3 v3 = vec3(1.0, 0.0, 0.5); //将v3设为(1.0,0.0,0.5)
+vec2 v2 = vec2(v3);            //使用v3的前两个元素，将v2设为(1.0,0.0)
+vec4 v4 = vec4(1.0);           //将v4设置为(1.0,1.0,1.0,1.0)
+```
+
+将多个矢量组合成一个矢量，先把第一个参数的矢量的所有元素填充进来，如果还没有填满，就继续使用第二个参数的矢量的元素填充。
+```
+vec4 v4b = vec(v2,v4);         //将v4设为(1.0,0.0,1.0,1.0)
+```
+
+### 矩阵构造函数
+储存在矩阵中的元素是按照列主序排列的。
+- 向矩阵构造函数中传入矩阵的每一个元素的数值来构造矩阵，传入值的顺序必须是列主序的。
+  ```
+  mat4 m4 = mat4( 1.0, 2.0, 3.0, 4.0,
+                  5.0, 6.0, 7.0, 8.0,
+                  9.0,10.0,11.0,12.0,
+                  13.0,14.0,15.0,16.0);
+  ```
+$$
+\left[
+    \begin{matrix}
+    1.0 & 5.0 & 9.0 & 13.0 \\
+    2.0 & 6.0 & 10.0 & 14.0 \\
+    3.0 & 7.0 & 11.0 & 15.0 \\
+    4.0 & 8.0 & 12.0 & 16.0 
+    \end{matrix}
+\right]
+$$
+
+-向矩阵构造函数中传入一个或多个矢量，按照列主序使用矢量里的元素来构造矩阵。
+```
+vec2 v2_1 = vec2(1.0,3.0);
+vec2 v2_2 = vec2(2.0,4.0);
+mat2 m2_1 = mat2(v2_1,v2_2);
+
+vec4 v4 = vec4(1.0,3.0,2.0,4.0);
+mat2 m2_2 = mat2(v4);
+```
+
+-向矩阵构造函数中传入矢量和数值，按照列主序使用矢量里面的元素值直接传入的数值来构造矩阵。
+```
+//使用两个浮点数和一个vec2对象来创建mat2对象
+mat2 m2 = mat2(1.0,3.0,v2_2);
+```
+-向构造函数中传入单个数值，这样将生成一个对角线上元素都是该数值，其他元素为0.0的矩阵。
+```
+mat4 m4 = mat4(1.0);//1.0 0.0 0.0 0.0
+                    //0.0 1.0 0.0 0.0
+                    //0.0 0.0 1.0 0.0
+                    //0.0 0.0 0.0 1.0
+```
+- 与矢量构造函数类似，如果传入的数值的数量大于1，又没有达到矩阵元素的数量，就会出错。
