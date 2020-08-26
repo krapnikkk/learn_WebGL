@@ -561,9 +561,106 @@ luma2(color,brightness);//函数存储在brightness中
 在GLSL ES中，如果变量声明在函数的外面，那么它就是全局变量，如果声明在函数内部，那就是局部变量。
 
 ## 存储限定字
+存储限定字是用来限制和修饰变量的。
 ### const变量
 const限定字表示该变量的值不能被改变。声明的同时必须对变量进行初始化，声明之后就不能再去改变它们的值了。
 
 ### Attribute变量
 attribute变量只能出现在顶点着色器中，只能被声明为全局变量，被用来表示逐顶点的信息。
-顶点着色器中能够容纳的attitude变量的最大数目与设备有关，可以通过内置的全局常量来获取最大数目。不管设备配置如何，支持WebGL的环境都支持至少8个attribute变量。
+顶点着色器中能够容纳的attitude变量的最大数目与设备有关，可以通过内置的全局常量来获取最大数目。
+不管设备配置如何，支持WebGL的环境都支持至少8个attribute变量。
+
+### uniform变量
+uniform变量可以用在顶点着色器和片元着色器中，且必须是全局变量。
+uniform变量是只读的，它可以是除了数组或结构体之外的任意类型。
+如果顶点着色器和片元着色器中声明了同名的uniform变量，那么它就会被两种着色器共享。
+
+### varying变量
+varying变量必须是全局变量，它的任务是从顶点着色器向片元着色器传输数据。必须在两种着色器中声明同名、同类型的varying变量。
+varying变量只能是以下类型：flaot、vec2、vec3、vec4、mat2、mat3和mat4。
+顶点着色器中赋给varying变量的值并不是直接传给了片元着色器的varying变量，这其中发生了光栅化的过程：根据绘制的图形，对前者（顶点着色器varying变量）进行内插，然后再传递给后者（片元着色器varying变量）。正因为varying变量需要被内插，所以我们需要限制它的数据类型。
+
+attribute变量 uniform变量和varying变量的数目限制
+| 变量类别 | 内置全局变量（表示最大数量） | 最小值 |
+| ------ | ------ | ------ |
+| attribute变量 | const mediump int gl_MaxVertexAttribs | 8 |
+| uniform变量（顶点着色器）| const mediump int gl_MaxVertexUniformVectors | 128 |
+| uniform变量（片元着色器） | const mediump int MaxFragmentUniformVectors | 16 |
+| varying变量 | const mediump int gl_MaxVaryingVectors | 8 |
+
+## 精度限定字
+GLSL ES新引入了精度限定字，目的是帮助着色器程序提高运行效率，削减内存开支。
+精度限定字用来表示每种数据具有的精度（比特数）。
+高精度的程序需要更大的开销（包括更大的内存和更久的计算时间），而低精度的程序需要的开销则小得很多。
+```
+#ifdef GL_ES
+precision mediump float;
+#endif
+```
+
+| 精度限定字 | 描述 | 默认数值范围和精度 |
+| ------ | ------ | ------ |
+| highp | 高精度，顶点着色器的最低精度 | Float(-2^62,2^62)精度2^-16 int(-2^16,2^16) |
+| mediump | 中精度，介于高精度与低精度之间，片元着色器的最低精度 | Float(-2^14,2^14)精度2^-10 int(-2^10,2^10) |
+| lowp | 低精度，低于中精度，可以表示所有颜色 | Float(-2,2)精度2^-8 int(-2^8,2^8) |
+
+使用关键字precision来声明着色器的默认精度，这行代码必须在顶点着色器或片元着色器的顶部，其格式如下：
+precision 精度限定字 类型名称
+
+数据类型的默认精度
+| 着色器类型 | 数据类型 | 默认精度 |
+| ---- | ---- | ---- |
+| 顶点着色器 | int | highp |
+|  | float | highp |
+|  | sampler2D | lowp |
+|  | samplerCube | lowp |
+| 片元着色器 | int | highp |
+|  | float | 无 |
+|  | sampler2D | lowp |
+|  | samplerCube | lowp |
+
+  片元着色器中的float类型没有默认精度，我们需要手动指定。
+
+## 预处理指令
+  GLSL ES支持预处理指令。预处理指令用来在真正编译之前对代码进行预处理，都是以（#）开始
+  ```
+  #ifdef GL_ES //是否已经定于GL_ES宏
+  precision mediump float;
+  #endif
+  ```
+
+  三种预处理指令：
+  ```
+  #if 条件表达式
+  如果条件表达式为真，执行到这里
+  #endif
+
+  #ifdef 某宏
+  如果定义了某宏，执行这里
+  #endif
+
+  #ifndef 某宏
+  如果没有定义某宏，执行这里
+  #undef
+  ```
+  ```
+  可以使用#define指令来进行定义宏定义。
+  #define 宏名 红内容
+
+  可以使用#undef指令来解除宏定义
+  #undef 宏名
+
+  可以使用#else 指令配置#ifdef
+  #define NUM 100
+  #if NUM == 100
+  如果宏NUM为100，执行这里
+  #else
+  否则，执行这里
+  #endif
+  ```
+
+  预定义的内置宏
+  | 宏 | 描述 |
+  | --- | --- |
+  | GL_ES | 在OpenGL ES 2.0中定义为1 |
+  | GL_FRAGMENT_PRECISION_HIGH | 片元着色器支持highp精度 |
