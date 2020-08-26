@@ -484,7 +484,86 @@ if语句或if-else语句中都必须包含一个布尔值，或者是产生布�
 
 
 ## 函数
+函数没有参数也是允许的。如果函数不返回值，那么函数中就不需要有return语句，返回的类型必须是void。也可以将自己定义的结构体类型指定为返回类型，但是结构体的成员中不能有数组。
 
+不能再一个函数内部调用它本身。
 
+函数格式：
+```
+返回类型 函数名(type0 arg0,type1 arg1,...,typen argn){
+  函数计算
+  return 返回值;
+}
+```
 
+```
+//将RGBA颜色值转换为亮度值
+float luma(vec4 color){
+  float r = color.r;
+  float g = color.g;
+  float b = color.b;
+  return 0.2126 * r + 0.7162 * g + 0.0722 * b;
+}
+```
 
+### 范式声明
+如果函数定义在其调用之后，那么我们必须在进行调用表之前先声明该函数的规范。
+```
+float luma(vec4);//规范声明
+main(){
+  ···
+  float brightness = luma(color);//luma()在定义之前就被调用了
+  ···
+}
+
+float luma(vec4 color){
+  return 0.2126 * color.r + 0.7162 * color.g + 0.0722 * color.b;
+}
+```
+
+### 参数限定词
+  在GLSL ES中，可以为函数参数指定限定字，以控制参数的行为。
+  函数参数定义成：
+  - 传递给函数的
+  - 将要在函数中被赋值的
+  - 即传递给函数的，又是将要在函数中被赋值的
+
+| 类型 | 规则 | 描述 |
+| ---- | ---- | ---- |
+| in | 向函数中传入值 | 参数传入函数，函数内可以使用参数的值，也可以修改其值。但函数内部的修改不会影响传入的变量 |
+| const in | 向函数中传入值 | 参数传入函数，函数内可以使用参数的值，但不能修改 | 
+| out | 在函数中被赋值，并被传出 | 传入变量的引用，若其在函数内被修改，会影响到函数外部传入的变量 |
+| inout | 传入函数，同时在函数中被赋值，并被传出 | 传入变量的引用，函数会用到变量的初始值，然后修改变量的值。会影响到函数外部传入的变量 |
+| <无：默认> | 将一个值传给函数 | 和in一样 |
+
+```
+void luma2(in vec3 color,out float brightness){
+  brightness = 0.2126 * color.r + 0.7162 * color.g + 0.0722 * color.b;
+}
+
+luma2(color,brightness);//函数存储在brightness中
+```
+
+## 内置函数
+| 类别 | 内置函数 |
+| ---- | ---- |
+| 角度函数 | radians(角度制转弧度制)，degrees(弧度制转角度值) |
+| 三角函数 | sin(正弦)，cos(余弦)，tan(正切)，asin(反正弦)，acos(反余弦)，atan(反正切) |
+| 指数函数 | pow(x^y)，exp(自然指数)，log(自然对数)，exps(2^x)，log2(以2为底对数)，sqrt(开平方)，inversesqrt(开平方的倒数) |
+| 通用函数 | abs(绝对值) min(最小值) max(最大值) mod(取余数) sign(取正负号) floor(向下取整) ceil(向上取整) clamp(限定范围) mix(线性内插) step(步进函数) smoothstep(艾米内插步进) fract(获取小数部分) |
+| 几何函数 | length(矢量长度) distance(两点间的距离) dot(内积) cross(外积) normalize(归一化)
+ reflect(矢量反射) faceforward(使向量“朝前”) |
+| 矩阵函数 | matrixCmpMult(逐元素乘法) |
+| 矢量函数 | lessThan(逐元素小于) lessThanEqual(逐元素小于等于) greaterThan(逐元素大于) greaterThanEqual(逐元素大于等于) equal(逐元素相等) notEqual(逐元素不等) any(任一元素为true则为true) all(所有元素为true则为true) not(逐元素取补) |
+| 纹理查询函数 | texture2D(在而二维纹理中获取纹素) textureCube(在立方体纹理中获取纹素) text2DProj(texture2D的投影版本) texture2DLod(texture2D的金字塔版本) textureCubeLod(textureCube的金字塔版本) texture2DProjLod(textureCube的投影版本) |
+
+## 全局变量和局部变量
+在GLSL ES中，如果变量声明在函数的外面，那么它就是全局变量，如果声明在函数内部，那就是局部变量。
+
+## 存储限定字
+### const变量
+const限定字表示该变量的值不能被改变。声明的同时必须对变量进行初始化，声明之后就不能再去改变它们的值了。
+
+### Attribute变量
+attribute变量只能出现在顶点着色器中，只能被声明为全局变量，被用来表示逐顶点的信息。
+顶点着色器中能够容纳的attitude变量的最大数目与设备有关，可以通过内置的全局常量来获取最大数目。不管设备配置如何，支持WebGL的环境都支持至少8个attribute变量。
