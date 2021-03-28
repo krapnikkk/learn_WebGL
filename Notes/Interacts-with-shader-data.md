@@ -47,7 +47,7 @@ let a_Position = gl.getAttribLocation(program,"a_Position");
 let a_PointSize = gl.getAttribLocation(program,"a_PointSize");
 ```
 
-## 更新存储限定符Attribute变量的值
+## 更新存储限定符Attribute变量的值【一次只能传递一个值】
 通过方法gl.vertexAttrib4f根据获取到的存储位置去更新a_Position和a_PointSize的值
 
 ```
@@ -61,7 +61,14 @@ let u_FragColor = gl.getUniformLocation(program,'u_FragColor');
 
 ```
 
-## 更新存储限定符Uniform变量的值
+## 更新存储限定符Uniform变量的值【一次只能传递一个值】
 ```
 gl.uniform3f(u_FragColor,1.0,0.0,0.0);
+
+gl.uniformMatrix4fv(location,transpose,array); //更新传递matrix
+```
+
+## 将缓存区对象分配给Attribute变量【一次性分配】
+```
+gl.vertexAttribPointer(a_Position,2,gl.FLOAT,false,0,0);
 ```
