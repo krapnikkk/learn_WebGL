@@ -46,7 +46,7 @@ function main() {
 
     viewProjMatrix.setPerspective(30, canvas.width / canvas.height, 1, 100);
     viewProjMatrix.lookAt(6, 6, 14, 0, 0, 0, 0, 1, 0);
-    let currentAngle = [0, 0, 0, 0];
+    let currentAngle = [0.0, 0.0];
     initEventHandlers(canvas, currentAngle);
     gl.enable(gl.DEPTH_TEST);
 
