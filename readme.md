@@ -1,5 +1,4 @@
 # learn WebGL notes
-- [learn WebGL notes](#learn-webgl-notes)
   - [Documentation](#documentation)
   - [Books](#books)
   - [Practices](#practices)
