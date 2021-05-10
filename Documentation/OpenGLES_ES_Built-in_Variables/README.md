@@ -17,7 +17,7 @@
 
 着色器都是最简化的，如果需要当前着色器以外地方的数据的话，我们必须要将数据传进来。我们可以使用attriburte、uniform和sampler来完成这一任务了。
 
-除此之外，OpenGLSL ES在不同的着色器里面还定义了另外几个以**gl_**为前缀的变量，它们能提供给我们更多的方式来读取/写入数据。
+除此之外，OpenGLSL ES在不同的着色器里面还定义了另外几个以 **gl_** 为前缀的变量，它们能提供给我们更多的方式来读取/写入数据。
 
 
 
@@ -124,10 +124,15 @@ gl_FragCoord的x和y分量是片元的窗口空间(Window-space)坐标。
 通过检查三角形面积的正负符号来确定一个三角形是否面向前方，包括gl_FrontFace控制的这个符号的可能反转。
 
 计算该面积的一种方法是：
+
+<!-- 
 $$
 a=\frac{1}{2}\sum\nolimits_{i=0}^{n-1}{x^{i}_w}{y^{i+1}_w}-{x^{i+1}_w}{y^{i}_w}
 $$
 
+-->
+
+<img src="https://latex.codecogs.com/svg.image?a=\frac{1}{2}\sum\nolimits_{i=0}^{n-1}{x^{i}_w}{y^{i&plus;1}_w}-{x^{i&plus;1}_w}{y^{i}_w}" title="a=\frac{1}{2}\sum\nolimits_{i=0}^{n-1}{x^{i}_w}{y^{i+1}_w}-{x^{i+1}_w}{y^{i}_w}" />
 
 其中$x^{i}_w$和$y^{i}_w$是n顶点多边形的第i个顶点的x和y窗口坐标。
 
