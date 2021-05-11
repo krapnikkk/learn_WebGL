@@ -6,9 +6,9 @@
 
 | 名称         | 内容                        |
 | ------------ | --------------------------- |
-| OpenGLSL ES 语法 | [查看](./Documentation/OpenGLES_ES/README.md) |
-| OpenGLSL ES 内置变量 | [查看](./Documentation/OpenGLES_ES_Built-in_Variables/README.md) |
-| OpenGLSL ES 内置函数 | [查看](./Documentation/OpenGLES_ES_Built-in_Functions/README.md) |
+| OpenGL ES SL | [查看](./Documentation/OpenGL_ES_SL/README.md) |
+| OpenGL ES 内置变量 | [查看](./Documentation/OpenGL_ES_Built-in_Variables/README.md) |
+| OpenGL ES 内置函数 | [查看](./Documentation/OpenGL_ES_Built-in_Functions/README.md) |
 
 
 
