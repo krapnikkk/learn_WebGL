@@ -59,10 +59,6 @@ function main() {
     gl.uniformMatrix4fv(u_ModelMatrix, false, modelMatrix.elements);
     gl.uniformMatrix4fv(u_ViewMatrix, false, viewMatrix.elements);
 
-
-
-
-
     gl.drawArrays(gl.TRIANGLES, 0, ponitCount);
 
 }
