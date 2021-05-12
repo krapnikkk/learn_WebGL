@@ -82,25 +82,21 @@
 | [绘制纯白色立方体](./39_ColoredCube_singleColor/main.js)     | 使用drawElements根据顶点索引绘制纯白色立方体         | [查看](https://krapnikkk.github.io/learn_WebGL/Books/WebGL_Programming_Guide/39_ColoredCube_singleColor/) |
 
 ## 光照原理
-| 标题                                                         |               简介               | 预览                                                         |
-| :----------------------------------------------------------- | :------------------------------: | ------------------------------------------------------------ |
-| [环境光下的漫反射](./40_LightedCube/main.js)                 | 使用光照原理模拟环境光下的漫反射 | [查看](https://krapnikkk.github.io/learn_WebGL/Books/WebGL_Programming_Guide/40_LightedCube/) |
-| [在环境光下接受漫反射的旋转的立方体](https://krapnikkk.github.io/learn_WebGL/Books/WebGL_Programming_Guide/43_LightedCube_animation/) |                                  | [查看](./43_LightedCube_animation/main.js)                   |
-| [环境光下的漫反射和环境反射光线](https://krapnikkk.github.io/learn_WebGL/Books/WebGL_Programming_Guide/44_LightedCube_ambient/) |                                  | [查看](./44_LightedCube_ambient/main.js)                     |
-| [用逆转置矩阵来处理坐标变换引起的法向量变化](https://krapnikkk.github.io/learn_WebGL/Books/WebGL_Programming_Guide/45_LightedTranslatedRotatedCube/) |                                  | [查看](./45_LightedTranslatedRotatedCube/main.js)            |
-| [点光源光下的立方体](https://krapnikkk.github.io/learn_WebGL/Books/WebGL_Programming_Guide/46_PointLightedCube/) |                                  | [查看](./46_PointLightedCube/main.js)                        |
-| [点光源光下的旋转的立方体](https://krapnikkk.github.io/learn_WebGL/Books/WebGL_Programming_Guide/47_PointLightedCube_animation/) |                                  | [查看](./47_PointLightedCube_animation/main.js)              |
-| [点光源光下的球体(逐顶点计算)](https://krapnikkk.github.io/learn_WebGL/Books/WebGL_Programming_Guide/48_PointLightedSphere/) |                                  | [查看](./48_PointLightedSphere/main.js)                      |
-| [点光源光下的球体(逐片元计算)](https://krapnikkk.github.io/learn_WebGL/Books/WebGL_Programming_Guide/49_PointLightedSphere_perFragment/) |                                  | [查看](./49_PointLightedSphere_perFragment/main.js)          |
-| [点光源光下的旋转的立方体(逐片元计算)](https://krapnikkk.github.io/learn_WebGL/Books/WebGL_Programming_Guide/50_PointLightedCube_perFragment/) |                                  | [查看](./50_PointLightedCube_perFragment/main.js)            |
+| 标题                                                         | 简介                                             | 预览                                                         |
+| :----------------------------------------------------------- | :----------------------------------------------- | ------------------------------------------------------------ |
+| [环境光下的漫反射](./40_LightedCube/main.js)                 | 使用光照原理模拟环境光下的漫反射                 | [查看](https://krapnikkk.github.io/learn_WebGL/Books/WebGL_Programming_Guide/40_LightedCube/) |
+| [环境光下的漫反射和环境反射光线](./41_LightedCube_ambient/main.js) | 使用漫反射和环境反射叠加模拟真实光照             | [查看](https://krapnikkk.github.io/learn_WebGL/Books/WebGL_Programming_Guide/41_LightedCube_ambient/) |
+| [变换后物体的光照](./42_LightedTranslatedRotatedCube/main.js) | 使用模型矩阵的逆转置矩阵计算变换后的法向量       | [查看](https://krapnikkk.github.io/learn_WebGL/Books/WebGL_Programming_Guide/42_LightedTranslatedRotatedCube/) |
+| [点光源光下的立方体(逐顶点计算)](./43_PointLightedCube/main.js) | 使用光源位置计算光线方向来模拟点光源下的光照效果 | [查看](https://krapnikkk.github.io/learn_WebGL/Books/WebGL_Programming_Guide/43_PointLightedCube/) |
+| [点光源光下的立方体(逐片元计算)](./44_PointLightedSphere_perFragment/main.js) | 在片元着色器中计算光照效果【优化内插过程效果】   | [查看](https://krapnikkk.github.io/learn_WebGL/Books/WebGL_Programming_Guide/44_PointLightedSphere_perFragment/) |
 
 
 ## 层次模型
-| 标题                                                         | 简介 |                     预览                     |
-| :----------------------------------------------------------- | :--: | :------------------------------------------: |
-| [单关节模型](https://krapnikkk.github.io/learn_WebGL/Books/WebGL_Programming_Guide/51_JointMode/) |      |        [查看](./51_JointMode/main.js)        |
-| [绘制部件模型](https://krapnikkk.github.io/learn_WebGL/Books/WebGL_Programming_Guide/52_MultiJointMode/) |      |     [查看](./52_MultiJointMode/main.js)      |
-| [分段绘制部件模型](https://krapnikkk.github.io/learn_WebGL/Books/WebGL_Programming_Guide/53_MultiJointModel_segment/) |      | [查看](./53_MultiJointModel_segment/main.js) |
+| 标题                                                         | 简介                                        |                             预览                             |
+| :----------------------------------------------------------- | :------------------------------------------ | :----------------------------------------------------------: |
+| [单关节模型](./45_JointMode/main.js)                         | 利用modelMatrix重复设置不同属性绘制层次模型 | [查看](https://krapnikkk.github.io/learn_WebGL/Books/WebGL_Programming_Guide/45_JointMode/) |
+| [多关节模型](./52_MultiJointMode/main.js)                    | 利用栈存储modelMartix更新多个节点模型的部件 | [查看](https://krapnikkk.github.io/learn_WebGL/Books/WebGL_Programming_Guide/46_MultiJointMode/) |
+| [分段绘制部件模型](https://krapnikkk.github.io/learn_WebGL/Books/WebGL_Programming_Guide/53_MultiJointModel_segment/) |                                             |         [查看](./53_MultiJointModel_segment/main.js)         |
 
 
 ## 高级技术
