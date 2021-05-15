@@ -19,7 +19,7 @@ const FSHADER_SOURCE = `
     }
 `;
 
-let g_last = Date.now();
+let g_last = Date.now(),
 ANGLE_STEP = 45.0;
 function main() {
     let canvas = document.querySelector("#webgl");

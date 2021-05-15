@@ -42,6 +42,9 @@ function main() {
     //绘制背景色
     gl.clearColor(0.0, 0.0, 0.0, 1.0);
 
+    gl.enable (gl.BLEND);
+    gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+
 
     let u_FragColor = gl.getUniformLocation(program, "u_FragColor");
     gl.uniform4f(u_FragColor, 1.0, 0.0, 0.0, 1.0);
@@ -60,6 +63,9 @@ function main() {
         keyDown(e, gl, ponitCount, u_ViewMatrix, viewMatrix);
     }
 
+    gl.enable(gl.BLEND);
+    // gl.blendFunc(gl.SRC_ALPHA,gl.ONE_MINUS_SRC_ALPHA);
+    gl.blendFunc(gl.SRC_ALPHA,gl.ONE);
     draw(gl, ponitCount, u_ViewMatrix, viewMatrix);
 }
 
@@ -84,18 +90,20 @@ const draw = (gl, n, u_ViewMatrix, viewMatrix) => {
 
 const initVertexBuffers = (gl, program) => {
     let vertices = new Float32Array([
-        //顶点坐标 (xyz) & 颜色（rgb）
-        0.0, 0.5, -0.4, 0.4, 1.0, 0.4, // 背后绿色
-        -0.5, -0.5, -0.4, 0.4, 1.0, 0.4,
-        0.5, -0.5, -0.4, 1.0, 0.4, 0.4,
+        //顶点坐标 (xyz) & 颜色（rgba）
+        0.0, 0.5, -0.4, 0.4, 1.0, 0.4,0.4, // 背后绿色
+        -0.5, -0.5, -0.4, 0.4, 1.0, 0.4,0.4,
+        0.5, -0.5, -0.4, 1.0, 0.4, 0.4,0.4,
 
-        0.5, 0.4, -0.2, 1.0, 0.4, 0.4, // 中间黄色
-        -0.5, 0.4, -0.2, 1.0, 1.0, 0.4,
-        0.0, -0.6, -0.2, 1.0, 1.0, 0.4,
+        0.5, 0.4, -0.2, 1.0, 0.4, 0.4,0.4, // 中间黄色
+        -0.5, 0.4, -0.2, 1.0, 1.0, 0.4,0.4,
+        0.0, -0.6, -0.2, 1.0, 1.0, 0.4,0.4,
 
-        0.0, 0.5, 0.0, 0.4, 0.4, 1.0,  // 前面蓝色
-        -0.5, -0.5, 0.0, 0.4, 0.4, 1.0,
-        0.5, -0.5, 0.0, 1.0, 0.4, 0.4,
+        0.0, 0.5, 0.0, 0.4, 0.4, 1.0,0.4,  // 前面蓝色
+        -0.5, -0.5, 0.0, 0.4, 0.4, 1.0,0.4,
+        0.5, -0.5, 0.0, 1.0, 0.4, 0.4,0.4,
+
+        
     ]);
     let FSIZE = vertices.BYTES_PER_ELEMENT;
     let vertexBuffer = gl.createBuffer(); //创建缓冲区对象
@@ -105,11 +113,11 @@ const initVertexBuffers = (gl, program) => {
 
     //动态设置source
     let a_Position = gl.getAttribLocation(program, "a_Position");
-    gl.vertexAttribPointer(a_Position, 3, gl.FLOAT, false, FSIZE * 6, 0);
+    gl.vertexAttribPointer(a_Position, 3, gl.FLOAT, false, FSIZE * 7, 0);
     gl.enableVertexAttribArray(a_Position);
 
     let a_Color = gl.getAttribLocation(program, "a_Color");
-    gl.vertexAttribPointer(a_Color, 3, gl.FLOAT, false, FSIZE * 6, FSIZE * 3);
+    gl.vertexAttribPointer(a_Color, 4, gl.FLOAT, false, FSIZE * 7, FSIZE * 3);
     gl.enableVertexAttribArray(a_Color);
 
     gl.bindBuffer(gl.ARRAY_BUFFER, null);//解除绑定

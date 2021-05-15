@@ -15,11 +15,26 @@ const FSHADER_SOURCE = `
 `;
 
 let g_last = Date.now(),
-ANGLE_STEP = 45.0;
+    ANGLE_STEP = 45.0,
+    g_currentAngle = 0.0,
+    g_requestID;
+
 function main() {
     let canvas = document.querySelector("#webgl");
-    let gl = canvas.getContext("webgl");
+    
+    canvas.addEventListener('webglcontextlost', contextLost, false);
+    canvas.addEventListener('webglcontextrestored', (ev) => { start(canvas); }, false);
+    start(canvas); 
+}
 
+const contextLost = (e)=>{
+    console.warn(e);
+    cancelAnimationFrame(g_requestID);
+    e.preventDefault();
+}
+
+const start = (canvas) => {
+    let gl = canvas.getContext("webgl");
     //创建着色器对象
     let vShader = gl.createShader(gl.VERTEX_SHADER);
     let fShader = gl.createShader(gl.FRAGMENT_SHADER);
@@ -42,7 +57,6 @@ function main() {
 
     let ponitCount = initVertexBuffers(gl, program);
 
-    let currentAngle = 0.0;
     let modelMatrix = new Matrix4();
     let u_modelMatrix = gl.getUniformLocation(program, "u_modelMatrix");
 
@@ -51,12 +65,11 @@ function main() {
 
 
     let tick = () => {
-        currentAngle = animate(currentAngle);
-        draw(gl, ponitCount, currentAngle, modelMatrix, u_modelMatrix);
-        requestAnimationFrame(tick);
+        g_currentAngle = animate(g_currentAngle); 
+        draw(gl, ponitCount, g_currentAngle, modelMatrix, u_modelMatrix);
+        g_requestID = requestAnimationFrame(tick);
     }
     tick();
-
 }
 
 const initVertexBuffers = (gl, program) => {
@@ -98,3 +111,4 @@ const animate = (angle) => {
     let newAngle = angle + (ANGLE_STEP * elapsed) / 1000;
     return newAngle %= 360;
 }
+

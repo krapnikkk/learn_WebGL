@@ -11,8 +11,8 @@
   - [高级技术](#高级技术)
 ## WebGL入门
 
-| 标题                                           | 简介                                         | 预览                                                         |
-| ---------------------------------------------- | -------------------------------------------- | ------------------------------------------------------------ |
+| 标题                                           | 简介                                         |                             预览                             |
+| ---------------------------------------------- | -------------------------------------------- | :----------------------------------------------------------: |
 | [清空绘图区](./01_HelloCanvas/main.js)         | 使用gl.clear清空绘图区                       | [查看](https://krapnikkk.github.io/learn_WebGL/Books/WebGL_Programming_Guide/01_HelloCanvas/) |
 | [绘制一个点v1](./02_HelloPoint1/main.js)       | 使用gl.drawArrays和gl.POINTS绘制一个点       | [查看](https://krapnikkk.github.io/learn_WebGL/Books/WebGL_Programming_Guide/02_HelloPoint1/) |
 | [绘制一个点v2](./03_HelloPoint2/main.js)       | 使用vertexAttrib1f设置gl_PointSize绘制一个点 | [查看](https://krapnikkk.github.io/learn_WebGL/Books/WebGL_Programming_Guide/03_HelloPoint2/) |
@@ -23,14 +23,14 @@
 
 ## 绘制和变换三角形
 
-| 标题                                                         | 简介                                             | 预览                                                         |
-| ------------------------------------------------------------ | ------------------------------------------------ | ------------------------------------------------------------ |
+| 标题                                                         | 简介                                             |                             预览                             |
+| ------------------------------------------------------------ | ------------------------------------------------ | :----------------------------------------------------------: |
 | [绘制多个点](./06_MultiPoints/main.js)                       | 使用缓冲区对象绘制多个点                         | [查看](https://krapnikkk.github.io/learn_WebGL/Books/WebGL_Programming_Guide/06_MultiPoints/) |
 | [绘制三角形](./07_HelloTriangle/main.js)                     | 使用gl.drawArrays和gl.TRIANGLES绘制一个三角形    | [查看](https://krapnikkk.github.io/learn_WebGL/Books/WebGL_Programming_Guide/07_HelloTriangle/) |
 | [绘制矩形](./08_HelloRectangle/main.js)                      | 使用gl.drawArrays和gl.TRIANGLE_STRIP绘制一个矩形 | [查看](https://krapnikkk.github.io/learn_WebGL/Books/WebGL_Programming_Guide/08_HelloRectangle/) |
 | [移动图形](./09_TranslatedTriangle/main.js)                  | glsl中点位置相加移动图形                         | [查看](https://krapnikkk.github.io/learn_WebGL/Books/WebGL_Programming_Guide/09_TranslatedTriangle/) |
 | [旋转图形](./10_RotatedTriangle/main.js)                     | glsl中通过三角函数旋转图形                       | [查看](https://krapnikkk.github.io/learn_WebGL/Books/WebGL_Programming_Guide/10_RotatedTriangle/) |
-| [使用变换矩阵旋转图形](https://krapnikkk.github.io/learn_WebGL/Books/WebGL_Programming_Guide/11_RotatedTriangle_Matrix/) | glsl中通过旋转变换矩阵旋转图形                   | [查看](./11_RotatedTriangle_Matrix/main.js)                  |
+| [使用变换矩阵旋转图形](https://krapnikkk.github.io/learn_WebGL/Books/WebGL_Programming_Guide/11_RotatedTriangle_Matrix/) | glsl中通过旋转变换矩阵旋转图形                   |         [查看](./11_RotatedTriangle_Matrix/main.js)          |
 | [使用变换矩阵移动图形](./12_TranslateTriangle_Matrix/main.js) | glsl中通过平移变换矩阵移动图形                   | [查看](https://krapnikkk.github.io/learn_WebGL/Books/WebGL_Programming_Guide/12_TranslateTriangle_Matrix/) |
 | [使用变换矩阵缩放图形](./13_ScaledTriangle_Matrix/main.js)   | glsl中通过缩放变换矩阵缩放图形                   | [查看](https://krapnikkk.github.io/learn_WebGL/Books/WebGL_Programming_Guide/13_ScaledTriangle_Matrix/) |
 
@@ -38,8 +38,8 @@
 
 ## 高级变换与动画基础
 
-| 标题                                                         | 简介                              | 预览                                                         |
-| ------------------------------------------------------------ | --------------------------------- | ------------------------------------------------------------ |
+| 标题                                                         | 简介                              |                             预览                             |
+| ------------------------------------------------------------ | --------------------------------- | :----------------------------------------------------------: |
 | [使用Matrix4库变换矩阵旋转图形](./14_RotatedTriangle_Matrix4/main.js) | 使用线代计算变换矩阵区变换图形    | [查看](https://krapnikkk.github.io/learn_WebGL/Books/WebGL_Programming_Guide/14_RotatedTriangle_Matrix4/) |
 | [使用Matrix4库复合变换矩阵旋转&移动图形](./15_RotatedTranslatedTriangle/main.js) | 使用计算好的modelMatrix变换图形   | [查看](https://krapnikkk.github.io/learn_WebGL/Books/WebGL_Programming_Guide/15_RotatedTranslatedTriangle/) |
 | [旋转变换图形动画](./16_RotatingTriangle/main.js)            | 使用requestAnimationFrame更新图形 | [查看](https://krapnikkk.github.io/learn_WebGL/Books/WebGL_Programming_Guide/16_RotatingTriangle/) |
@@ -48,8 +48,8 @@
 
 ## 颜色与纹理
 
-| 标题                                                         | 简介                                                  | 预览                                                         |
-| ------------------------------------------------------------ | ----------------------------------------------------- | ------------------------------------------------------------ |
+| 标题                                                         | 简介                                                  |                             预览                             |
+| ------------------------------------------------------------ | ----------------------------------------------------- | :----------------------------------------------------------: |
 | [创建多个缓冲区对象](./17_MultiAttributeSize/main.js)        | 创建多个缓冲区对象设置glsl                            | [查看](https://krapnikkk.github.io/learn_WebGL/Books/WebGL_Programming_Guide/17_MultiAttributeSize/) |
 | [gl.vertexAttribPointer的步进和偏移参数](./18_MultiAttributeSize_Interleaved/main.js) | 使用gl.vertexAttribPointer按步进和偏移设置参数        | [查看](https://krapnikkk.github.io/learn_WebGL/Books/WebGL_Programming_Guide/18_MultiAttributeSize_Interleaved/) |
 | [将顶点着色器中的数据传递到片元着色器](./19_MultiAttributeColor/main.js) | 使用varying内置限定符将顶点着色器向片元着色器传递数据 | [查看](https://krapnikkk.github.io/learn_WebGL/Books/WebGL_Programming_Guide/19_MultiAttributeColor/) |
@@ -64,8 +64,8 @@
 
 ## 进入三维世界
 
-| 标题                                                         | 简介                                                 | 预览                                                         |
-| ------------------------------------------------------------ | ---------------------------------------------------- | ------------------------------------------------------------ |
+| 标题                                                         | 简介                                                 |                             预览                             |
+| ------------------------------------------------------------ | ---------------------------------------------------- | :----------------------------------------------------------: |
 | [三维世界的深度](./26_LookAtTriangles/main.js)               | 通过设置不同的z分量呈现图形的深度关系                | [查看](https://krapnikkk.github.io/learn_WebGL/Books/WebGL_Programming_Guide/26_LookAtTriangles/) |
 | [从指定视点观察旋转后的三角形](./27_LookAtRotatedTriangles/main.js) | 使用计算好的viewMatrix变换图形                       | [查看](https://krapnikkk.github.io/learn_WebGL/Books/WebGL_Programming_Guide/27_LookAtRotatedTriangles/) |
 | [模型视图矩阵](./28_LookAtRotatedTriangles_mvMatrix/main.js) | 使用modelViewMatrix变换图形                          | [查看](https://krapnikkk.github.io/learn_WebGL/Books/WebGL_Programming_Guide/28_LookAtRotatedTriangles_mvMatrix/) |
@@ -82,8 +82,8 @@
 | [绘制纯白色立方体](./39_ColoredCube_singleColor/main.js)     | 使用drawElements根据顶点索引绘制纯白色立方体         | [查看](https://krapnikkk.github.io/learn_WebGL/Books/WebGL_Programming_Guide/39_ColoredCube_singleColor/) |
 
 ## 光照原理
-| 标题                                                         | 简介                                             | 预览                                                         |
-| :----------------------------------------------------------- | :----------------------------------------------- | ------------------------------------------------------------ |
+| 标题                                                         | 简介                                             |                             预览                             |
+| :----------------------------------------------------------- | :----------------------------------------------- | :----------------------------------------------------------: |
 | [环境光下的漫反射](./40_LightedCube/main.js)                 | 使用光照原理模拟环境光下的漫反射                 | [查看](https://krapnikkk.github.io/learn_WebGL/Books/WebGL_Programming_Guide/40_LightedCube/) |
 | [环境光下的漫反射和环境反射光线](./41_LightedCube_ambient/main.js) | 使用漫反射和环境反射叠加模拟真实光照             | [查看](https://krapnikkk.github.io/learn_WebGL/Books/WebGL_Programming_Guide/41_LightedCube_ambient/) |
 | [变换后物体的光照](./42_LightedTranslatedRotatedCube/main.js) | 使用模型矩阵的逆转置矩阵计算变换后的法向量       | [查看](https://krapnikkk.github.io/learn_WebGL/Books/WebGL_Programming_Guide/42_LightedTranslatedRotatedCube/) |
@@ -92,24 +92,28 @@
 
 
 ## 层次模型
-| 标题                                                         | 简介                                        |                             预览                             |
-| :----------------------------------------------------------- | :------------------------------------------ | :----------------------------------------------------------: |
-| [单关节模型](./45_JointMode/main.js)                         | 利用modelMatrix重复设置不同属性绘制层次模型 | [查看](https://krapnikkk.github.io/learn_WebGL/Books/WebGL_Programming_Guide/45_JointMode/) |
-| [多关节模型](./52_MultiJointMode/main.js)                    | 利用栈存储modelMartix更新多个节点模型的部件 | [查看](https://krapnikkk.github.io/learn_WebGL/Books/WebGL_Programming_Guide/46_MultiJointMode/) |
-| [分段绘制部件模型](https://krapnikkk.github.io/learn_WebGL/Books/WebGL_Programming_Guide/53_MultiJointModel_segment/) |                                             |         [查看](./53_MultiJointModel_segment/main.js)         |
+| 标题                                                     | 简介                                        |                             预览                             |
+| :------------------------------------------------------- | :------------------------------------------ | :----------------------------------------------------------: |
+| [单关节模型](./45_JointMode/main.js)                     | 利用modelMatrix重复设置不同属性绘制层次模型 | [查看](https://krapnikkk.github.io/learn_WebGL/Books/WebGL_Programming_Guide/45_JointMode/) |
+| [多关节模型](./46_MultiJointMode/main.js)                | 利用栈存储modelMartix更新多个节点模型的部件 | [查看](https://krapnikkk.github.io/learn_WebGL/Books/WebGL_Programming_Guide/46_MultiJointMode/) |
+| [分段绘制部件模型](./47_MultiJointModel_segment/main.js) | 利用多组顶点数据绘制多个节点模型部件        | [查看](https://krapnikkk.github.io/learn_WebGL/Books/WebGL_Programming_Guide/47_MultiJointModel_segment/) |
 
 
 ## 高级技术
-| 标题                                                         | 简介 |                    预览                     |
-| :----------------------------------------------------------- | :--: | :-----------------------------------------: |
-| [通过鼠标旋转立方体](https://krapnikkk.github.io/learn_WebGL/Books/WebGL_Programming_Guide/54_RotateObject/) |      |      [查看](./54_RotateObject/main.js)      |
-| [像素校验立方体是否被点击到](https://krapnikkk.github.io/learn_WebGL/Books/WebGL_Programming_Guide/55_PickObject/) |      |       [查看](./55_PickObject/main.js)       |
-| [利用a分量标记表面编号比对立方体是否被点击到](https://krapnikkk.github.io/learn_WebGL/Books/WebGL_Programming_Guide/56_PickFace/) |      |        [查看](./56_PickFace/main.js)        |
-| [平视显示器（Head up display）](https://krapnikkk.github.io/learn_WebGL/Books/WebGL_Programming_Guide/57_HeadUpDisplay/) |      |     [查看](./57_HeadUpDisplay/main.js)      |
-| [在网页上方显示三维物体](https://krapnikkk.github.io/learn_WebGL/Books/WebGL_Programming_Guide/58_3DoverWeb/) |      |       [查看](./58_3DoverWeb/main.js)        |
-| [线性雾化](https://krapnikkk.github.io/learn_WebGL/Books/WebGL_Programming_Guide/59_Fog/) |      |          [查看](./59_Fog/main.js)           |
-| [线性雾化（使用视图坐标系的负z值来近似顶点和视点的距离）](https://krapnikkk.github.io/learn_WebGL/Books/WebGL_Programming_Guide/60_Fog_w/) |      |         [查看](./60_Fog_w/main.js)          |
-| [使用discard绘制圆](https://krapnikkk.github.io/learn_WebGL/Books/WebGL_Programming_Guide/61_RoundPoint/) |      |       [查看](./61_RoundPoint/main.js)       |
-| [使用混合功能实现半透明效果](https://krapnikkk.github.io/learn_WebGL/Books/WebGL_Programming_Guide/62_LookAtBlendedTriangles/) |      | [查看](./62_LookAtBlendedTriangles/main.js) |
+| 标题                                                         | 简介                                        |                             预览                             |
+| :----------------------------------------------------------- | :------------------------------------------ | :----------------------------------------------------------: |
+| [通过鼠标旋转立方体](./48_RotateObject/main.js)              | 利用浏览器事件与立方体交互                  | [查看](https://krapnikkk.github.io/learn_WebGL/Books/WebGL_Programming_Guide/48_RotateObject/) |
+| [选中纯色物体](./49_PickObject/main.js)                      | 利用gl.readPixels检验纯色立方体是否被点击   | [查看](https://krapnikkk.github.io/learn_WebGL/Books/WebGL_Programming_Guide/49_PickObject/) |
+| [选中物体的表面](./50_PickFace/main.js)                      | 利用a分量标记表面编号比对立方体是否被点击到 | [查看](https://krapnikkk.github.io/learn_WebGL/Books/WebGL_Programming_Guide/50_PickFace/) |
+| [线性雾化](./51_Fog/main.js)                                 | 使用雾化因子模拟雾化效果(w分量)             | [查看](https://krapnikkk.github.io/learn_WebGL/Books/WebGL_Programming_Guide/51_Fog/) |
+| [绘制圆形的点](./52_RoundPoint/main.js)                      | 使用discard舍弃多余片元绘制圆点             | [查看](https://krapnikkk.github.io/learn_WebGL/Books/WebGL_Programming_Guide/52_RoundPoint/) |
+| [混合函数优化a分量表现](./53_LookAtBlendedTriangles/main.js) | 利用gl.blendFunc混合函数优化a分量叠加的异常 | [查看](https://krapnikkk.github.io/learn_WebGL/Books/WebGL_Programming_Guide/53_LookAtBlendedTriangles/) |
+| [a混合和隐藏面消除的冲突](./54_BlendedCube/main.js)          | 隐藏的片元不会参与混合过程                  | [查看](https://krapnikkk.github.io/learn_WebGL/Books/WebGL_Programming_Guide/54_BlendedCube/) |
+| [切换着色器程序](./56_ProgramObject/main.js)                 | 轮流绘制不同的着色器程序                    | [查看](https://krapnikkk.github.io/learn_WebGL/Books/WebGL_Programming_Guide/56_ProgramObject/) |
+| [渲染到纹理](./57_FramebufferObject/main.js)                 | 利用帧缓冲区将渲染出来的图像作为纹理使用    | [查看](https://krapnikkk.github.io/learn_WebGL/Books/WebGL_Programming_Guide/57_FramebufferObject/) |
+| [绘制阴影](./58_Shadow/main.js)                              | 结合帧缓冲区实现阴影贴图绘制阴影            | [查看](https://krapnikkk.github.io/learn_WebGL/Books/WebGL_Programming_Guide/58_Shadow/) |
+| [绘制高精度阴影](./59_Shadow_highp/main.js)                  | 利用rgba分量重新计算z值                     | [查看](https://krapnikkk.github.io/learn_WebGL/Books/WebGL_Programming_Guide/59_Shadow_highp/) |
+| [加载三维模型](./60_OBJViewer/main.js)                       | 加载obj和mtl文件并解析渲染                  | [查看](https://krapnikkk.github.io/learn_WebGL/Books/WebGL_Programming_Guide/60_OBJViewer/) |
+| [响应上下文丢失](./61_RotatingTriangle_contextLost/main.js)  | 监听上下文事件对内容进行响应恢复            | [查看](https://krapnikkk.github.io/learn_WebGL/Books/WebGL_Programming_Guide/61_RotatingTriangle_contextLost/) |
 
 
