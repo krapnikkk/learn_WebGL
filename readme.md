@@ -28,5 +28,5 @@
 | [粒子发散](./Practices/particle/main.js) |  使用点精灵实现粒子发散效果  |   [查看](https://krapnikkk.github.io/learn_WebGL/Practices/particle/)   |
 | [图片字符化](./Practices/textureStringify/main.js) | 使用点精灵实现图片字符化 | [查看](https://krapnikkk.github.io/learn_WebGL/Practices/textureStringify/) |
 | [加载dem模型](./Practices/digitalElevationModel/main.js) | 加载并渲染dem模型 | [查看](https://krapnikkk.github.io/learn_WebGL/Practices/digitalElevationModel/) |
-|  |  |  |
+| [顶点数组对象](./Practices/vao/main.js) | 使用VAO顶点数组缓存对象对绘制数据状态进行保存 | [查看](https://krapnikkk.github.io/learn_WebGL/Practices/vao/) |
 
