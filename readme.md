@@ -31,3 +31,5 @@
 | [顶点数组对象](./Practices/vao/main.js) | 使用VAO顶点数组缓存对象对绘制数据状态进行保存 | [查看](https://krapnikkk.github.io/learn_WebGL/Practices/vao/) |
 | [给物体上色](./Practices/addColor/main.js) | 验证fragment shader执行之前v_color已经是插值好的颜色 | [查看](https://krapnikkk.github.io/learn_WebGL/Practices/addColor/) |
 | [压缩纹理](./Practices/textureCompressed/main.js) | 对比使用压缩纹理以及image纹理的内存占用情况 | [查看](https://krapnikkk.github.io/learn_WebGL/Practices/textureCompressed/) |
+| [模版裁剪](./Practices/stencilTest/main.js) | 在模版测试阶段使用测试和操作函数进行裁剪图像 | [查看](https://krapnikkk.github.io/learn_WebGL/Practices/stencilTest/) |
+
