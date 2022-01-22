@@ -38,7 +38,7 @@
 
 ## 高级变换与动画基础
 
-| 标题                                                         | 简介                              |                             预览                             |
+| 标题                                                         | 简介                              |                             预览                             |
 | ------------------------------------------------------------ | --------------------------------- | :----------------------------------------------------------: |
 | [使用Matrix4库变换矩阵旋转图形](./14_RotatedTriangle_Matrix4/main.js) | 使用线代计算变换矩阵区变换图形    | [查看](https://krapnikkk.github.io/learn_WebGL/Books/WebGL_Programming_Guide/14_RotatedTriangle_Matrix4/) |
 | [使用Matrix4库复合变换矩阵旋转&移动图形](./15_RotatedTranslatedTriangle/main.js) | 使用计算好的modelMatrix变换图形   | [查看](https://krapnikkk.github.io/learn_WebGL/Books/WebGL_Programming_Guide/15_RotatedTranslatedTriangle/) |

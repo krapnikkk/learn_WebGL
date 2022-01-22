@@ -32,4 +32,5 @@
 | [给物体上色](./Practices/addColor/main.js) | 验证fragment shader执行之前v_color已经是插值好的颜色 | [查看](https://krapnikkk.github.io/learn_WebGL/Practices/addColor/) |
 | [压缩纹理](./Practices/textureCompressed/main.js) | 对比使用压缩纹理以及image纹理的内存占用情况 | [查看](https://krapnikkk.github.io/learn_WebGL/Practices/textureCompressed/) |
 | [模版裁剪](./Practices/stencilTest/main.js) | 在模版测试阶段使用测试和操作函数进行裁剪图像 | [查看](https://krapnikkk.github.io/learn_WebGL/Practices/stencilTest/) |
+| [	Instance实例化]](./Practices/instancing/main.js) | 使用vao+instance绘制多个图形 | [查看](https://krapnikkk.github.io/learn_WebGL/Practices/instancing/) |
 
